@@ -20,6 +20,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Security
 -->
 
+## [v1.0.1]
+
+### Fixed
+
+- Fixed CSS Grid not behaving properly in Chrome 90
+
 ## [v1.0.0]
 
 ### Added

@@ -33,7 +33,7 @@
 }
 
 .gallery .exhibit {
-  max-height: calc((var(--artpiece-height) * 2) + 10px);
+  max-height: calc((var(--artpiece-height) * 2) + 20px);
   overflow: auto;
 }
 
@@ -42,23 +42,23 @@
   height: var(--artpiece-height);
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: max-content 1fr 70px;
+  grid-template-rows: max-content calc(var(--artpiece-height) - 100px) 70px;
 }
 
 .gallery .exhibit .artpiece .title {
   justify-self: stretch;
   margin: 0;
-  line-height: 34px;
+  line-height: 30px;
   text-align: center;
 }
 
 .gallery .exhibit .artpiece img {
   object-fit: contain;
+  place-self: center;
+  max-height: 100%;
   justify-self: center;
   border: none;
-  height: 100%;
   padding-top: 5px;
-  /* box-shadow: var(--shadow); */
 }
 
 .gallery .exhibit .artpiece .description {
@@ -67,7 +67,6 @@
   margin: 5px auto;
   padding: 5px;
   text-align: center;
-  /* looks */
   background-color: #fff;
   border-radius: 1em;
   box-shadow: var(--shadow);

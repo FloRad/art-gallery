@@ -2,7 +2,7 @@
   "name": "art-gallery",
   "title": "Art Gallery",
   "description": "Art Gallery allows you to finally show off all the character art you have collected!",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "library": "false",
   "minimumCoreVersion": "0.7.9",
   "compatibleCoreVersion": "0.7.9",
@@ -17,7 +17,7 @@
     }
   ],
   "manifest": "https://gitlab.com/florad-foundry/art-gallery/-/raw/master/module.json",
-  "download": "https://gitlab.com/florad-foundry/art-gallery/-/raw/v1.0.0/package/art-gallery.zip",
+  "download": "https://gitlab.com/florad-foundry/art-gallery/-/raw/v1.0.1/package/art-gallery.zip",
   "url": "https://gitlab.com/florad-foundry/art-gallery/",
   "readme": "https://gitlab.com/florad-foundry/art-gallery/-/blob/master/README.md",
   "bugs": "https://gitlab.com/florad-foundry/art-gallery/-/issues",
