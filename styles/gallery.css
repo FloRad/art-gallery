@@ -1,0 +1,74 @@
+.gallery {
+  --artpiece-height: 350px;
+  --shadow: 0 0.125em 0.5em rgba(0, 0, 0, 0.3),
+    0 0.0625em 0.125em rgba(0, 0, 0, 0.2);
+}
+
+.gallery .inputs {
+  margin-bottom: 5px;
+}
+
+.gallery .inputs textarea {
+  resize: none;
+  margin-left: 5px;
+}
+
+.gallery .empty .background {
+  width: 100%;
+  color: rgba(0, 0, 0, 0.2);
+  font-size: 15em;
+  text-align: center;
+}
+
+.gallery .exhibit {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 10px;
+}
+
+.gallery .artpiece .delete {
+  align-self: flex-end;
+  flex: 0;
+}
+
+.gallery .exhibit {
+  max-height: calc((var(--artpiece-height) * 2) + 10px);
+  overflow: auto;
+}
+
+.gallery .exhibit .artpiece {
+  width: 100%;
+  height: var(--artpiece-height);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: max-content 1fr 70px;
+}
+
+.gallery .exhibit .artpiece .title {
+  justify-self: stretch;
+  margin: 0;
+  line-height: 34px;
+  text-align: center;
+}
+
+.gallery .exhibit .artpiece img {
+  object-fit: contain;
+  justify-self: center;
+  border: none;
+  height: 100%;
+  padding-top: 5px;
+  /* box-shadow: var(--shadow); */
+}
+
+.gallery .exhibit .artpiece .description {
+  overflow: auto;
+  width: 90%;
+  margin: 5px auto;
+  padding: 5px;
+  text-align: center;
+  /* looks */
+  background-color: #fff;
+  border-radius: 1em;
+  box-shadow: var(--shadow);
+}

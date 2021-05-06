@@ -1,0 +1,12 @@
+{
+  "AG.Gallery": "Art Gallery",
+  "AG.ViewGallery": "View Art Gallery",
+  "AG.ArtGalleryMng": "Art Gallery Manager",
+  "AG.AddArt": "Add Artpiece",
+  "AG.Image": "Image",
+  "AG.Title": "Title",
+  "AG.EnterDesc": "Add a description...",
+  "AG.NoDesc": "No description available",
+  "AG.FilePath": "File Path",
+  "AG.ClickToZoom": "Click to zoom"
+}

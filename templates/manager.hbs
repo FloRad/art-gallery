@@ -1,0 +1,71 @@
+<form class="{{cssClass}}" autocomplete="off">
+  {{#if gallery}}
+  <section class="exhibit">
+    {{#each gallery as |art|}}
+    <div class="artpiece" data-id="{{art.id}}">
+      <span class="flexrow">
+        <h2 class="title" contenteditable="{{../editMode}}" data-target="title">
+          {{art.title}}
+        </h2>
+        {{#if ../editMode}}
+        <button type="button" class="delete">
+          <i class="fas fa-trash"></i>
+        </button>
+        {{/if}}
+      </span>
+      <img
+        src="{{art.img}}"
+        alt="{{art.title}}"
+        title="{{localize 'AG.ClickToZoom'}}"
+      />
+      <div
+        class="description"
+        contenteditable="{{../editMode}}"
+        data-target="description"
+      >
+        {{#if art.description}} {{art.description}} {{else}} {{localize
+        "AG.NoDesc"}} {{/if}}
+      </div>
+    </div>
+    {{/each}}
+  </section>
+  {{else}}
+  <section class="empty">
+    <i class="background far fa-images"></i>
+  </section>
+  {{/if}} {{#if editMode}}
+  <footer>
+    <hr />
+    <span class="flexrow inputs">
+      <span class="flexcol">
+        <div class="form-group">
+          <label for="title"> {{localize "AG.Title"}} </label>
+          <span class="form-fields">
+            <input type="text" name="title" placeholder="{{localize
+            "AG.Title"}}" required />
+          </span>
+        </div>
+        <div class="form-group">
+          <label for="title">
+            {{localize "AG.Image"}} {{localize "AG.FilePath"}}</label
+          >
+          <span class="form-fields">
+            {{#if canBrowse}} {{filePicker target="img" type="image"}}{{/if}}
+            <input class="image" type="text" name="img" placeholder="{{localize
+            "AG.FilePath"}}" required />
+          </span>
+        </div>
+      </span>
+      <textarea
+        name="description"
+        rows="3"
+        placeholder="{{localize 'AG.EnterDesc'}}"
+      ></textarea>
+    </span>
+    <button type="submit">
+      <i class="fas fa-plus"></i>
+      {{localize "AG.AddArt"}}
+    </button>
+  </footer>
+  {{/if}}
+</form>
