@@ -3,6 +3,10 @@ import ArtGalleryManager from './GalleryManager.js';
 Hooks.on('getActorSheetHeaderButtons', onGetActorSheetHeaderButtons);
 Hooks.on('getActorDirectoryEntryContext', onGetActorDirectoryEntryContext);
 
+window['art-gallery'] = {
+  ArtGalleryManager: ArtGalleryManager,
+};
+
 /**
  * Adds a new new entry to the contextmenu of the Actor Directory
  * @param {HTMLElement} html The HTML element
@@ -18,7 +22,7 @@ function onGetActorDirectoryEntryContext(html, options) {
     condition: viewCharArtOption.condition,
     callback: (li) => {
       const actor = game.actors.get(li.data('entityId'));
-      new ArtGalleryManager(actor, { editMode: actor.owner }).render(true);
+      new ArtGalleryManager(actor).render(true);
     },
   };
   options.splice(viewCharArtIndex + 1, 0, galleryOption);
@@ -36,7 +40,7 @@ function onGetActorSheetHeaderButtons(sheet, buttons) {
     class: 'open-art-gallery',
     icon: 'fas fa-paint-brush',
     onclick: () => {
-      new ArtGalleryManager(actor, { editMode: actor.owner }).render(true);
+      new ArtGalleryManager(actor).render(true);
     },
   };
   buttons.unshift(button);
