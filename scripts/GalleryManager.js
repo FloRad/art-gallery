@@ -14,7 +14,7 @@ export default class ArtGalleryManager extends FormApplication {
    */
   constructor(object, options = {}) {
     super(object, options);
-    this.editMode = options.editMode || false;
+    this.editMode = options.editMode || object.owner;
   }
 
   static get defaultOptions() {
