@@ -5,7 +5,11 @@
     <div class="artpiece" data-id="{{art.id}}">
       <span class="flexrow">
         {{#if ../editMode}}
-        <button type="button" class="menu">
+        <button
+          type="button"
+          class="menu"
+          title="{{localize 'AG.ClickToOpen'}}"
+        >
           <i class="fas fa-bars"></i>
         </button>
         {{/if}}

@@ -11,6 +11,7 @@
     "FilePath": "File Path",
     "ClickToZoom": "Click to zoom",
     "SetTokenArt": "Set as Token Artwork",
-    "SetCharArt": "Set as Character Artwork"
+    "SetCharArt": "Set as Character Artwork",
+    "ClickToOpen": "Click to open menu"
   }
 }
