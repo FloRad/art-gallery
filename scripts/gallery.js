@@ -3,9 +3,7 @@ import ArtGalleryManager from './GalleryManager.js';
 Hooks.on('getActorSheetHeaderButtons', onGetActorSheetHeaderButtons);
 Hooks.on('getActorDirectoryEntryContext', onGetActorDirectoryEntryContext);
 
-window['art-gallery'] = {
-  ArtGalleryManager: ArtGalleryManager,
-};
+globalThis.ArtGalleryManager = ArtGalleryManager;
 
 /**
  * Adds a new new entry to the contextmenu of the Actor Directory
@@ -15,7 +13,6 @@ window['art-gallery'] = {
 function onGetActorDirectoryEntryContext(html, options) {
   const viewCharArtOption = options.find((o) => o.name === 'SIDEBAR.CharArt');
   const viewCharArtIndex = options.indexOf(viewCharArtOption);
-  console.log(options);
   const galleryOption = {
     name: game.i18n.localize('AG.ViewGallery'),
     icon: '<i class="fas fa-paint-brush"></i>',
