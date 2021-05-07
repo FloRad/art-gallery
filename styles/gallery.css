@@ -27,9 +27,14 @@
   gap: 10px;
 }
 
-.gallery .artpiece .delete {
-  align-self: flex-end;
+.gallery .artpiece .menu {
   flex: 0;
+  align-self: flex-start;
+  background: transparent;
+  border: none;
+  margin-right: 0;
+  border-bottom: 1px solid #782e22;
+  border-radius: 0;
 }
 
 .gallery .exhibit {

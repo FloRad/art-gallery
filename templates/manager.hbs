@@ -4,14 +4,14 @@
     {{#each gallery as |art|}}
     <div class="artpiece" data-id="{{art.id}}">
       <span class="flexrow">
+        {{#if ../editMode}}
+        <button type="button" class="menu">
+          <i class="fas fa-bars"></i>
+        </button>
+        {{/if}}
         <h2 class="title" contenteditable="{{../editMode}}" data-target="title">
           {{art.title}}
         </h2>
-        {{#if ../editMode}}
-        <button type="button" class="delete">
-          <i class="fas fa-trash"></i>
-        </button>
-        {{/if}}
       </span>
       <img
         src="{{art.img}}"

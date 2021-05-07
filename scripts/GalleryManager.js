@@ -42,32 +42,21 @@ export default class ArtGalleryManager extends FormApplication {
 
   /**
    * @override
-   * @param {HTMLElement} html
+   * @param {jQuery} html
    */
   activateListeners(html) {
     super.activateListeners(html);
+    this._contextmenu(html);
 
     //pop out a piece of art
     html.find('.artpiece img').on('click', (ev) => {
       const id = $(ev.currentTarget).parents('.artpiece').data('id');
-      const gallery = this._getGallery();
-      const artpiece = gallery.find((a) => a.id === id);
+      const artpiece = this._getArtpieceFromGallery(id);
       new ImagePopout(artpiece.img, {
         title: `${this.actor.name} - ${artpiece.title}`,
         shareable: true,
         uuid: this.actor.uuid,
       }).render(true);
-    });
-
-    //delete a piece
-    html.find('.artpiece .delete').on('click', async (ev) => {
-      const element = $(ev.currentTarget).parents('.artpiece');
-      const id = element.data('id');
-      const gallery = this._deleteArtFromGallery(id);
-      await this._setGallery(gallery);
-      element.slideUp(200, () => {
-        this.render(true);
-      });
     });
 
     //edit title and description
@@ -78,8 +67,7 @@ export default class ArtGalleryManager extends FormApplication {
       //get the target prop and the new text
       const target = element.dataset.target;
       const newText = element.innerText;
-      const gallery = this._getGallery();
-      const artpiece = gallery.find((a) => a.id === id);
+      const artpiece = this._getArtpieceFromGallery(id);
       if (artpiece[target] !== newText) {
         artpiece[target] = newText;
         await this._setGallery(gallery);
@@ -118,6 +106,16 @@ export default class ArtGalleryManager extends FormApplication {
 
   /**
    * @private
+   * @param {string} id the id of the artpiece
+   * @returns the artpiece
+   */
+  _getArtpieceFromGallery(id) {
+    const gallery = this._getGallery();
+    return gallery.find((i) => i.id === id);
+  }
+
+  /**
+   * @private
    * @param {Array} gallery
    */
   async _setGallery(gallery) {
@@ -137,7 +135,7 @@ export default class ArtGalleryManager extends FormApplication {
    * @param {String} id the id of the artpiece to remove
    * @returns {Array} the adjusted gallery
    */
-  _deleteArtFromGallery(id) {
+  async _deleteArtFromGallery(id) {
     const gallery = this._getGallery();
     //find the piece
     const obj = gallery.find((a) => a.id === id);
@@ -146,6 +144,55 @@ export default class ArtGalleryManager extends FormApplication {
       //splice it out of the array
       gallery.splice(index, 1);
     }
-    return gallery;
+    return this._setGallery(gallery);
+  }
+
+  /**
+   * Construct a contextmenu
+   * @param {jQuery} html the HTML element
+   * @returns the constructed context menu
+   */
+  _contextmenu(html) {
+    const selector = '.artpiece .menu';
+    const items = [
+      {
+        name: 'AG.SetCharArt',
+        icon: '<i class="fas fa-sign-out-alt"></i>',
+        condition: this.editMode,
+        callback: (li) => {
+          const id = li.parents('.artpiece').data('id');
+          const artpiece = this._getArtpieceFromGallery(id);
+          this.actor.update({ img: artpiece.img });
+        },
+      },
+      {
+        name: 'AG.SetTokenArt',
+        icon: '<i class="fas fa-sign-out-alt"></i>',
+        condition: this.editMode,
+        callback: (li) => {
+          const id = li.parents('.artpiece').data('id');
+          const artpiece = this._getArtpieceFromGallery(id);
+          this.actor.update({ 'token.img': artpiece.img });
+        },
+      },
+      {
+        name: 'Delete',
+        icon: '<i class="fas fa-trash"></i>',
+        condition: this.editMode,
+        callback: async (li) => {
+          const element = li.parents('.artpiece');
+          const id = element.data('id');
+          await this._deleteArtFromGallery(id);
+          element.slideUp(200, () => {
+            this.render(true);
+          });
+        },
+      },
+    ];
+    const options = {
+      // eventName: 'click',
+    };
+    //TODO Revisit this again later for potential changes to how the menu is displayed, especially concerning the event
+    return new ContextMenu(html, selector, items, options);
   }
 }
