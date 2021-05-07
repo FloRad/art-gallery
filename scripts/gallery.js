@@ -7,7 +7,7 @@ globalThis.ArtGalleryManager = ArtGalleryManager;
 
 /**
  * Adds a new new entry to the contextmenu of the Actor Directory
- * @param {HTMLElement} html The HTML element
+ * @param {jQuery} html The HTML element
  * @param {Array} options The contextmenu entries
  */
 function onGetActorDirectoryEntryContext(html, options) {
