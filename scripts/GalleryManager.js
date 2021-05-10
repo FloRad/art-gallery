@@ -4,7 +4,7 @@
  */
 export default class ArtGalleryManager extends FormApplication {
     /** @type {boolean} Whether the manager is in edit mode or not   */
-    editMode
+    editMode;
 
     /**
      * @constructor
@@ -13,8 +13,8 @@ export default class ArtGalleryManager extends FormApplication {
      *
      */
     constructor(object, options = {}) {
-        super(object, options)
-        this.editMode = options.editMode || object.owner
+        super(object, options);
+        this.editMode = options.editMode || object.owner;
     }
 
     static get defaultOptions() {
@@ -27,17 +27,15 @@ export default class ArtGalleryManager extends FormApplication {
             resizable: true,
             closeOnSubmit: false,
             submitonClose: false,
-        })
+        });
     }
 
     get title() {
-        return this.editMode
-            ? game.i18n.localize('AG.ArtGalleryMng')
-            : game.i18n.localize('AG.Gallery')
+        return game.i18n.localize('AG.Gallery');
     }
 
     get actor() {
-        return this.object
+        return this.object;
     }
 
     /**
@@ -45,35 +43,35 @@ export default class ArtGalleryManager extends FormApplication {
      * @param {jQuery} html
      */
     activateListeners(html) {
-        super.activateListeners(html)
-        this._contextmenu(html)
+        super.activateListeners(html);
+        this._contextmenu(html);
 
         //pop out a piece of art
         html.find('.artpiece img').on('click', (ev) => {
-            const id = $(ev.currentTarget).parents('.artpiece').data('id')
-            const artpiece = this._getArtpieceFromGallery(id)
+            const id = $(ev.currentTarget).parents('.artpiece').data('id');
+            const artpiece = this._getArtpieceFromGallery(id);
             new ImagePopout(artpiece.img, {
                 title: `${this.actor.name} - ${artpiece.title}`,
                 shareable: true,
                 uuid: this.actor.uuid,
-            }).render(true)
-        })
+            }).render(true);
+        });
 
         //edit title and description
         html.find('[contenteditable="true"]').on('focusout', async (ev) => {
-            const element = ev.currentTarget
-            const id = $(element).parents('.artpiece').data('id')
-
+            const element = ev.currentTarget;
+            const id = $(element).parents('.artpiece').data('id');
             //get the target prop and the new text
-            const target = element.dataset.target
-            const newText = element.innerText
-            const artpiece = this._getArtpieceFromGallery(id)
-            if (artpiece[target] !== newText) {
-                artpiece[target] = newText
-                await this._setGallery(gallery)
-                this.render(true)
+            const target = element.dataset.target;
+            const newText = element.innerText;
+            const gallery = this._getGallery();
+            const artpiece = gallery.find((a) => a.id === id);
+            if (!!artpiece && artpiece[target] !== newText) {
+                artpiece[target] = newText;
+                await this._setGallery(gallery);
+                this.render(true);
             }
-        })
+        });
     }
 
     /**
@@ -81,19 +79,19 @@ export default class ArtGalleryManager extends FormApplication {
      * @returns the data object
      */
     async getData() {
-        const data = super.getData()
-        data.editMode = this.editMode
-        data.canDelete = this.actor.owner
-        data.gallery = this._getGallery()
-        data.canBrowse = this._canUserBrowseFiles()
-        return data
+        const data = super.getData();
+        data.editMode = this.editMode;
+        data.canDelete = this.actor.owner;
+        data.gallery = this._getGallery();
+        data.canBrowse = this._canUserBrowseFiles();
+        return data;
     }
 
     async _updateObject(event, formData) {
-        const gallery = this._getGallery()
-        gallery.push({ id: randomID(), ...formData })
-        await this._setGallery(gallery)
-        this.render(true)
+        const gallery = this._getGallery();
+        gallery.push({ id: randomID(), ...formData });
+        await this._setGallery(gallery);
+        this.render(true);
     }
 
     /**
@@ -101,7 +99,7 @@ export default class ArtGalleryManager extends FormApplication {
      * @returns {Array} The gallery
      */
     _getGallery() {
-        return this.actor.getFlag('art-gallery', 'gallery') || []
+        return this.actor.getFlag('art-gallery', 'gallery') || [];
     }
 
     /**
@@ -110,8 +108,8 @@ export default class ArtGalleryManager extends FormApplication {
      * @returns the artpiece
      */
     _getArtpieceFromGallery(id) {
-        const gallery = this._getGallery()
-        return gallery.find((i) => i.id === id)
+        const gallery = this._getGallery();
+        return gallery.find((i) => i.id === id);
     }
 
     /**
@@ -119,7 +117,7 @@ export default class ArtGalleryManager extends FormApplication {
      * @param {Array} gallery
      */
     async _setGallery(gallery) {
-        await this.actor.setFlag('art-gallery', 'gallery', gallery)
+        await this.actor.setFlag('art-gallery', 'gallery', gallery);
     }
 
     /**
@@ -127,7 +125,7 @@ export default class ArtGalleryManager extends FormApplication {
      * @returns {boolean} Whether the user can browse Files
      */
     _canUserBrowseFiles() {
-        return game.user.can('FILES_BROWSE')
+        return game.user.can('FILES_BROWSE');
     }
 
     /**
@@ -136,15 +134,15 @@ export default class ArtGalleryManager extends FormApplication {
      * @returns {Array} the adjusted gallery
      */
     async _deleteArtFromGallery(id) {
-        const gallery = this._getGallery()
+        const gallery = this._getGallery();
         //find the piece
-        const obj = gallery.find((a) => a.id === id)
-        const index = gallery.indexOf(obj)
+        const obj = gallery.find((a) => a.id === id);
+        const index = gallery.indexOf(obj);
         if (index > -1) {
             //splice it out of the array
-            gallery.splice(index, 1)
+            gallery.splice(index, 1);
         }
-        return this._setGallery(gallery)
+        return this._setGallery(gallery);
     }
 
     /**
@@ -153,16 +151,16 @@ export default class ArtGalleryManager extends FormApplication {
      * @returns the constructed context menu
      */
     _contextmenu(html) {
-        const selector = '.artpiece .menu'
+        const selector = '.artpiece .menu';
         const items = [
             {
                 name: 'AG.SetCharArt',
                 icon: '<i class="fas fa-sign-out-alt"></i>',
                 condition: this.editMode,
                 callback: (li) => {
-                    const id = li.parents('.artpiece').data('id')
-                    const artpiece = this._getArtpieceFromGallery(id)
-                    this.actor.update({ img: artpiece.img })
+                    const id = li.parents('.artpiece').data('id');
+                    const artpiece = this._getArtpieceFromGallery(id);
+                    this.actor.update({ img: artpiece.img });
                 },
             },
             {
@@ -170,9 +168,9 @@ export default class ArtGalleryManager extends FormApplication {
                 icon: '<i class="fas fa-sign-out-alt"></i>',
                 condition: this.editMode,
                 callback: (li) => {
-                    const id = li.parents('.artpiece').data('id')
-                    const artpiece = this._getArtpieceFromGallery(id)
-                    this.actor.update({ 'token.img': artpiece.img })
+                    const id = li.parents('.artpiece').data('id');
+                    const artpiece = this._getArtpieceFromGallery(id);
+                    this.actor.update({ 'token.img': artpiece.img });
                 },
             },
             {
@@ -180,19 +178,18 @@ export default class ArtGalleryManager extends FormApplication {
                 icon: '<i class="fas fa-trash"></i>',
                 condition: this.editMode,
                 callback: async (li) => {
-                    const element = li.parents('.artpiece')
-                    const id = element.data('id')
-                    await this._deleteArtFromGallery(id)
+                    const element = li.parents('.artpiece');
+                    const id = element.data('id');
+                    await this._deleteArtFromGallery(id);
                     element.slideUp(200, () => {
-                        this.render(true)
-                    })
+                        this.render(true);
+                    });
                 },
             },
-        ]
+        ];
         const options = {
             // eventName: 'click',
-        }
-        //TODO Revisit this again later for potential changes to how the menu is displayed, especially concerning the event
-        return new ContextMenu(html, selector, items, options)
+        };
+        return new ContextMenu(html, selector, items, options);
     }
 }
