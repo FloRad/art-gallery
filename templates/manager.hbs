@@ -1,8 +1,8 @@
 <form class="{{cssClass}}" autocomplete="off">
   {{#if gallery}}
-  <section class="exhibit">
+  <ul class="exhibit">
     {{#each gallery as |art|}}
-    <div class="artpiece" data-id="{{art.id}}">
+    <li class="artpiece" data-id="{{art.id}}">
       <span class="flexrow">
         {{#if ../editMode}}
         <button
@@ -30,9 +30,9 @@
         {{#if art.description}} {{art.description}} {{else}} {{localize
         "AG.NoDesc"}} {{/if}}
       </div>
-    </div>
+    </li>
     {{/each}}
-  </section>
+  </ul>
   {{else}}
   <section class="empty">
     <i class="background far fa-images"></i>
