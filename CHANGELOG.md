@@ -27,6 +27,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 -   Added a menu button that appears when you are able to edit the Gallery. When right-clicked it displays a menu with several options
 -   Added the ability to set an artpiece as the character artwork
 -   Added the ability to set an artpiece as the token artwork
+-   Added the `ArtGalleryManager`to the global object so you can open an actor's gallery by simply instantiating the class with an actor
 
 ### Changed
 
