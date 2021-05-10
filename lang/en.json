@@ -1,17 +1,16 @@
 {
-  "AG": {
-    "Gallery": "Art Gallery",
-    "ViewGallery": "View Art Gallery",
-    "ArtGalleryMng": "Art Gallery Manager",
-    "AddArt": "Add Artpiece",
-    "Image": "Image",
-    "Title": "Title",
-    "EnterDesc": "Add a description...",
-    "NoDesc": "No description available",
-    "FilePath": "File Path",
-    "ClickToZoom": "Click to zoom",
-    "SetTokenArt": "Set as Token Artwork",
-    "SetCharArt": "Set as Character Artwork",
-    "ClickToOpen": "Click to open menu"
-  }
+    "AG": {
+        "Gallery": "Art Gallery",
+        "ViewGallery": "View Art Gallery",
+        "AddArt": "Add Artpiece",
+        "Image": "Image",
+        "Title": "Title",
+        "EnterDesc": "Add a description...",
+        "NoDesc": "No description available",
+        "FilePath": "File Path",
+        "ClickToZoom": "Click to zoom",
+        "SetTokenArt": "Set as Token Artwork",
+        "SetCharArt": "Set as Character Artwork",
+        "ClickToOpen": "Click to open menu"
+    }
 }

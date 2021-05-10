@@ -1,78 +1,83 @@
 .gallery {
-  --artpiece-height: 350px;
-  --shadow: 0 0.125em 0.5em rgba(0, 0, 0, 0.3),
-    0 0.0625em 0.125em rgba(0, 0, 0, 0.2);
+    --artpiece-height: 350px;
+    --shadow: 0 0.125em 0.5em rgba(0, 0, 0, 0.3),
+        0 0.0625em 0.125em rgba(0, 0, 0, 0.2);
 }
 
 .gallery .inputs {
-  margin-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+.gallery #context-menu {
+    min-width: 200px;
+    text-align: left;
 }
 
 .gallery .inputs textarea {
-  resize: none;
-  margin-left: 5px;
+    resize: none;
+    margin-left: 5px;
 }
 
 .gallery .empty .background {
-  width: 100%;
-  color: rgba(0, 0, 0, 0.2);
-  font-size: 15em;
-  text-align: center;
+    width: 100%;
+    color: rgba(0, 0, 0, 0.2);
+    font-size: 15em;
+    text-align: center;
+}
+.gallery .exhibit {
+    max-height: calc((var(--artpiece-height) * 2) + 20px);
+    overflow: auto;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
-.gallery .exhibit {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
-  gap: 10px;
+.gallery .artpiece + .artpiece {
+    margin-left: 10px;
 }
 
 .gallery .artpiece .menu {
-  flex: 0;
-  align-self: flex-start;
-  background: transparent;
-  border: none;
-  margin-right: 0;
-  border-bottom: 1px solid #782e22;
-  border-radius: 0;
-}
-
-.gallery .exhibit {
-  max-height: calc((var(--artpiece-height) * 2) + 20px);
-  overflow: auto;
+    flex: 0;
+    align-self: flex-start;
+    background: transparent;
+    border: none;
+    margin-right: 0;
+    border-bottom: 1px solid #782e22;
+    border-radius: 0;
 }
 
 .gallery .exhibit .artpiece {
-  width: 100%;
-  height: var(--artpiece-height);
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: max-content calc(var(--artpiece-height) - 100px) 70px;
+    flex: 1 0 var(--artpiece-height);
+    max-width: 450px;
+    height: var(--artpiece-height);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content calc(var(--artpiece-height) - 100px) 70px;
 }
 
 .gallery .exhibit .artpiece .title {
-  justify-self: stretch;
-  margin: 0;
-  line-height: 30px;
-  text-align: center;
+    justify-self: stretch;
+    margin: 0;
+    line-height: 30px;
+    text-align: center;
 }
 
 .gallery .exhibit .artpiece img {
-  object-fit: contain;
-  place-self: center;
-  max-height: 100%;
-  justify-self: center;
-  border: none;
-  padding-top: 5px;
+    object-fit: contain;
+    place-self: center;
+    max-height: 100%;
+    justify-self: center;
+    border: none;
+    padding-top: 5px;
 }
 
 .gallery .exhibit .artpiece .description {
-  overflow: auto;
-  width: 90%;
-  margin: 5px auto;
-  padding: 5px;
-  text-align: center;
-  background-color: #fff;
-  border-radius: 1em;
-  box-shadow: var(--shadow);
+    overflow: auto;
+    width: 90%;
+    margin: 5px auto;
+    padding: 5px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 1em;
+    box-shadow: var(--shadow);
 }
