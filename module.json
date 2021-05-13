@@ -5,7 +5,7 @@
     "version": "1.1.0",
     "library": "false",
     "minimumCoreVersion": "0.7.9",
-    "compatibleCoreVersion": "0.7.9",
+    "compatibleCoreVersion": "0.8.3",
     "author": "FloRad",
     "esmodules": ["/scripts/gallery.js"],
     "styles": ["/styles/gallery.css"],
@@ -17,7 +17,7 @@
         }
     ],
     "manifest": "https://gitlab.com/florad-foundry/art-gallery/-/raw/master/module.json",
-    "download": "https://gitlab.com/florad-foundry/art-gallery/-/raw/v1.0.1/package/art-gallery.zip",
+    "download": "https://gitlab.com/florad-foundry/art-gallery/-/raw/v1.1.0/package/art-gallery.zip",
     "url": "https://gitlab.com/florad-foundry/art-gallery/",
     "readme": "https://gitlab.com/florad-foundry/art-gallery/-/blob/master/README.md",
     "bugs": "https://gitlab.com/florad-foundry/art-gallery/-/issues",

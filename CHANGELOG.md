@@ -32,6 +32,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Changed
 
 -   Moved the delete button to the edit menu
+-   Changed compatible core version to 0.8.3
 
 ## [v1.0.1]
 
