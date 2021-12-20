@@ -11,18 +11,18 @@ globalThis.ArtGalleryManager = ArtGalleryManager;
  * @param {Array} options The contextmenu entries
  */
 function onGetActorDirectoryEntryContext(html, options) {
-  const viewCharArtOption = options.find((o) => o.name === 'SIDEBAR.CharArt');
-  const viewCharArtIndex = options.indexOf(viewCharArtOption);
-  const galleryOption = {
-    name: game.i18n.localize('AG.ViewGallery'),
-    icon: '<i class="fas fa-paint-brush"></i>',
-    condition: viewCharArtOption.condition,
-    callback: (li) => {
-      const actor = game.actors.get(li.data('entityId'));
-      new ArtGalleryManager(actor).render(true);
-    },
-  };
-  options.splice(viewCharArtIndex + 1, 0, galleryOption);
+    const viewCharArtOption = options.find((o) => o.name === 'SIDEBAR.CharArt');
+    const viewCharArtIndex = options.indexOf(viewCharArtOption);
+    const galleryOption = {
+        name: game.i18n.localize('AG.ViewGallery'),
+        icon: '<i class="fas fa-paint-brush"></i>',
+        condition: viewCharArtOption.condition,
+        callback: (li) => {
+            const actor = game.actors.get(li.data('documentId'));
+            new ArtGalleryManager(actor).render(true);
+        },
+    };
+    options.splice(viewCharArtIndex + 1, 0, galleryOption);
 }
 
 /**
@@ -31,14 +31,14 @@ function onGetActorDirectoryEntryContext(html, options) {
  * @param {Array} buttons The array of header buttons
  */
 function onGetActorSheetHeaderButtons(sheet, buttons) {
-  const actor = sheet.actor;
-  const button = {
-    label: game.i18n.localize('AG.Gallery'),
-    class: 'open-art-gallery',
-    icon: 'fas fa-paint-brush',
-    onclick: () => {
-      new ArtGalleryManager(actor).render(true);
-    },
-  };
-  buttons.unshift(button);
+    const actor = sheet.actor;
+    const button = {
+        label: game.i18n.localize('AG.Gallery'),
+        class: 'open-art-gallery',
+        icon: 'fas fa-paint-brush',
+        onclick: () => {
+            new ArtGalleryManager(actor).render(true);
+        },
+    };
+    buttons.unshift(button);
 }
