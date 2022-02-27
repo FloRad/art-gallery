@@ -20,15 +20,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Security
 -->
 
-## [v1.1.2]
+## [v1.2.0]
+
+###
+
+-   Added the ability to set active token images. Keep in mind that for **linked** actors **ALL** tokens in the currently active scene will be updated
 
 ### Changed
 
--   Changed Gallery viewer tooltip to be more clear
+-   Changed minimum Foundry VTT version to v9
 
 ## [v1.1.1]
 
--   Added compatability with Foundry 0.8.x and v9
+-   Added compatibility with Foundry 0.8.x and v9
 
 ## [v1.1.0]
 
