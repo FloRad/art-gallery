@@ -1,5 +1,14 @@
 # README
 
+<div align="center">
+  
+  ![Compatible Foundry Version](https://img.shields.io/endpoint?url=https://foundryshields.com/version?url=https%3A%2F%2Fraw.githubusercontent.com%2FFloRad%2Fart-gallery%2Fmaster%2Fsrc%2Fmodule.json)
+  [![Foundry Hub Endorsements](https://img.shields.io/endpoint?logoColor=white&url=https%3A%2F%2Fwww.foundryvtt-hub.com%2Fwp-json%2Fhubapi%2Fv1%2Fpackage%2Fart-gallery%2Fshield%2Fendorsements)](https://www.foundryvtt-hub.com/package/art-gallery/)
+  ![Latest Release Download Count](https://img.shields.io/github/downloads/FloRad/art-gallery/latest/module.zip)
+  
+</div>
+
+
 ## About
 
 Welcome to Art Gallery. This module allows you to create a small gallery of pictures attached directly to an actor. Great if you have accumulated lots of cool art of your character over the course of a long campaign, or if you just want to have some relevant images "at hand".
