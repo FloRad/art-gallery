@@ -1,14 +1,21 @@
 import ArtGalleryManager from './GalleryManager.js';
 
+Hooks.on('init', onInit);
 Hooks.on('getActorSheetHeaderButtons', onGetActorSheetHeaderButtons);
 Hooks.on('getActorDirectoryEntryContext', onGetActorDirectoryEntryContext);
 
-globalThis.ArtGalleryManager = ArtGalleryManager;
+function onInit() {
+    console.log('art-gallery', '|', 'Initializing art-gallery');
+    //set up the API
+    game.modules.get('art-gallery').api = {
+        ArtGalleryManager,
+    };
+}
 
 /**
  * Adds a new new entry to the contextmenu of the Actor Directory
- * @param {jQuery} html The HTML element
- * @param {Array} options The contextmenu entries
+ * @param {jQuery<HTMLElement>} html The HTML element
+ * @param {Array<ContextMenu.Item>} options The contextmenu entries
  */
 function onGetActorDirectoryEntryContext(html, options) {
     const viewCharArtOption = options.find((o) => o.name === 'SIDEBAR.CharArt');
@@ -28,7 +35,7 @@ function onGetActorDirectoryEntryContext(html, options) {
 /**
  * Adds a new Actor sheet button to open the Art Gallery Manager
  * @param {Object} sheet The actor sheet
- * @param {Array} buttons The array of header buttons
+ * @param {Array<HeaderButton>} buttons The array of header buttons
  */
 function onGetActorSheetHeaderButtons(sheet, buttons) {
     const actor = sheet.actor;

@@ -3,9 +3,6 @@
  * @extends FormApplication
  */
 export default class ArtGalleryManager extends FormApplication {
-    /** @type {boolean} Whether the manager is in edit mode or not   */
-    editMode;
-
     /**
      * @constructor
      * @param {Actor} object the actor
@@ -14,6 +11,7 @@ export default class ArtGalleryManager extends FormApplication {
      */
     constructor(object, options = {}) {
         super(object, options);
+        /** @type {boolean} Whether the manager is in edit mode or not   */
         this.editMode = options.editMode || object.isOwner;
     }
 

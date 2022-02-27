@@ -20,6 +20,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Security
 -->
 
+## [v1.1.2]
+
+### Changed
+
+-   Changed Gallery viewer tooltip to be more clear
+
 ## [v1.1.1]
 
 -   Added compatability with Foundry 0.8.x and v9

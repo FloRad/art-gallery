@@ -2,13 +2,21 @@
     "name": "art-gallery",
     "title": "Art Gallery",
     "description": "Art Gallery allows you to finally show off all the character art you have collected!",
+    "version": "This is auto replaced",
     "author": "FloRad",
-    "version": "1.1.1",
+    "authors": [
+        {
+            "name": "FloRad",
+            "discord": "FloRadical#2142",
+            "url": "https://gitlab.com/florad92"
+        }
+    ],
+    "library": false,
+    "socket": false,
     "minimumCoreVersion": "0.8.9",
     "compatibleCoreVersion": "9",
-    "scripts": [],
-    "esmodules": ["/scripts/gallery.js"],
-    "styles": ["/styles/gallery.css"],
+    "esmodules": ["module/art-gallery.js"],
+    "styles": ["styles/art-gallery.css"],
     "languages": [
         {
             "lang": "en",
@@ -16,9 +24,12 @@
             "path": "lang/en.json"
         }
     ],
-    "manifest": "https://gitlab.com/florad-foundry/art-gallery/-/raw/master/module.json",
-    "download": "https://gitlab.com/florad-foundry/art-gallery/-/raw/v1.1.1/package/art-gallery.zip",
-    "url": "https://gitlab.com/florad-foundry/art-gallery/",
+    "scripts": [],
+    "packs": [],
+    "dependencies": [],
+    "url": "This is auto replaced",
+    "manifest": "This is auto replaced",
+    "download": "This is auto replaced",
     "license": "https://gitlab.com/florad-foundry/art-gallery/-/blob/master/LICENSE",
     "readme": "https://gitlab.com/florad-foundry/art-gallery/-/blob/master/README.md",
     "bugs": "https://gitlab.com/florad-foundry/art-gallery/-/issues",

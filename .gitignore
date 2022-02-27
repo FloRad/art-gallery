@@ -1,7 +1,29 @@
-.DS_Store
-.htmlhintrc
-.prettierrc
-.vscode/*
-dist/*
-.idea
-docs/*
+# IDE
+.idea/
+.vs/
+.vscode/
+
+# Node Modules
+node_modules/
+npm-debug.log
+
+# yarn2
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+
+# Local configuration
+foundryconfig.json
+
+# Distribution files
+dist
+
+# ESLint
+.eslintcache
+
+# Junit results
+junit.xml
