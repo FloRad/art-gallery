@@ -6,9 +6,9 @@ Welcome to Art Gallery. This module allows you to create a small gallery of pict
 
 ## How to install
 
-You can install Art Gallery either through the Foundry VTT setup by looking for it in the _Install Module_ Dialog or by copying the Manifest URL 
+You can install Art Gallery either through the Foundry VTT setup by looking for it in the _Install Module_ Dialog or by copying the Manifest URL
 
-`https://gitlab.com/florad-foundry/art-gallery/-/raw/master/module.json`
+`https://github.com/FloRad/art-gallery/releases/latest/download/module.json`
 
 into the input box at the bottom of the dialog
 
@@ -18,11 +18,11 @@ There are two ways to access the art gallery.
 
 **1)** Right-clicking the actor in the Actor Directory.
 
-![Actor Directory](doc/actor_directory.png) 
+![Actor Directory](doc/actor_directory.png)
 
 **2)** In the header bar of the sheet
 
-![Actorsheet Header](doc/actorsheet_header.png) 
+![Actorsheet Header](doc/actorsheet_header.png)
 
 You can then directly add artpieces to the gallery. If you have permission to use the FileBrowser then a button will appear that let's you select a file from within it.
 
@@ -36,9 +36,9 @@ I have a few more features planned for this module, but they fall squarely into 
 
 Possible future features include, but are not limited to:
 
-- Albums
-- Permissions per image
-- Sharing images to only select people
+-   Albums
+-   Permissions per image
+-   Sharing images to only select people
 
 ## FAQ
 
