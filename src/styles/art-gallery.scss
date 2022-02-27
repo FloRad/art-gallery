@@ -1,86 +1,85 @@
 .gallery {
-    --artpiece-height: 350px;
-    --shadow: 0 0.125em 0.5em rgba(0, 0, 0, 0.3),
-        0 0.0625em 0.125em rgba(0, 0, 0, 0.2);
+  --artpiece-height: 350px;
+  --shadow: 0 0.125em 0.5em rgba(0, 0, 0, 0.3), 0 0.0625em 0.125em rgba(0, 0, 0, 0.2);
 
-    .inputs {
-        margin-bottom: 5px;
+  .inputs {
+    margin-bottom: 5px;
+  }
+
+  #context-menu {
+    min-width: 250px;
+    text-align: left;
+  }
+
+  .inputs textarea {
+    resize: none;
+    margin-left: 5px;
+  }
+
+  .empty .background {
+    width: 100%;
+    color: rgba(0, 0, 0, 0.2);
+    font-size: 15em;
+    text-align: center;
+  }
+
+  .exhibit {
+    max-height: calc((var(--artpiece-height) * 2) + 20px);
+    overflow: auto;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+
+  .artpiece {
+    + .artpiece {
+      margin-left: 10px;
     }
 
-    #context-menu {
-        min-width: 250px;
-        text-align: left;
+    .menu {
+      flex: 0;
+      align-self: flex-start;
+      background: transparent;
+      border: none;
+      margin-right: 0;
+      border-bottom: 1px solid #782e22;
+      border-radius: 0;
+    }
+  }
+
+  .exhibit .artpiece {
+    flex: 1 0 var(--artpiece-height);
+    max-width: 450px;
+    height: var(--artpiece-height);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content calc(var(--artpiece-height) - 100px) 70px;
+
+    .title {
+      justify-self: stretch;
+      margin: 0;
+      line-height: 30px;
+      text-align: center;
     }
 
-    .inputs textarea {
-        resize: none;
-        margin-left: 5px;
+    img {
+      object-fit: contain;
+      place-self: center;
+      max-height: 100%;
+      justify-self: center;
+      border: none;
+      padding-top: 5px;
     }
 
-    .empty .background {
-        width: 100%;
-        color: rgba(0, 0, 0, 0.2);
-        font-size: 15em;
-        text-align: center;
+    .description {
+      overflow: auto;
+      width: 90%;
+      margin: 5px auto;
+      padding: 5px;
+      text-align: center;
+      background-color: #fff;
+      border-radius: 1em;
+      box-shadow: var(--shadow);
     }
-
-    .exhibit {
-        max-height: calc((var(--artpiece-height) * 2) + 20px);
-        overflow: auto;
-        display: flex;
-        justify-content: space-evenly;
-        flex-wrap: wrap;
-    }
-
-    .artpiece {
-        + .artpiece {
-            margin-left: 10px;
-        }
-
-        .menu {
-            flex: 0;
-            align-self: flex-start;
-            background: transparent;
-            border: none;
-            margin-right: 0;
-            border-bottom: 1px solid #782e22;
-            border-radius: 0;
-        }
-    }
-
-    .exhibit .artpiece {
-        flex: 1 0 var(--artpiece-height);
-        max-width: 450px;
-        height: var(--artpiece-height);
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: max-content calc(var(--artpiece-height) - 100px) 70px;
-
-        .title {
-            justify-self: stretch;
-            margin: 0;
-            line-height: 30px;
-            text-align: center;
-        }
-
-        img {
-            object-fit: contain;
-            place-self: center;
-            max-height: 100%;
-            justify-self: center;
-            border: none;
-            padding-top: 5px;
-        }
-
-        .description {
-            overflow: auto;
-            width: 90%;
-            margin: 5px auto;
-            padding: 5px;
-            text-align: center;
-            background-color: #fff;
-            border-radius: 1em;
-            box-shadow: var(--shadow);
-        }
-    }
+  }
 }

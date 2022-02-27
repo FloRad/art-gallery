@@ -1,5 +1,5 @@
 {
-    "compilerOptions": {
-        "types": ["@league-of-foundry-developers/foundry-vtt-types"]
-    }
+  "compilerOptions": {
+    "types": ["@league-of-foundry-developers/foundry-vtt-types"]
+  }
 }

@@ -1,37 +1,37 @@
 {
-    "name": "art-gallery",
-    "title": "Art Gallery",
-    "description": "Art Gallery allows you to finally show off all the character art you have collected!",
-    "version": "This is auto replaced",
-    "author": "FloRad",
-    "authors": [
-        {
-            "name": "FloRad",
-            "discord": "FloRadical#2142",
-            "url": "https://gitlab.com/florad92"
-        }
-    ],
-    "library": false,
-    "socket": false,
-    "minimumCoreVersion": "9",
-    "compatibleCoreVersion": "9",
-    "esmodules": ["module/art-gallery.js"],
-    "styles": ["styles/art-gallery.css"],
-    "languages": [
-        {
-            "lang": "en",
-            "name": "English",
-            "path": "lang/en.json"
-        }
-    ],
-    "scripts": [],
-    "packs": [],
-    "dependencies": [],
-    "url": "This is auto replaced",
-    "manifest": "This is auto replaced",
-    "download": "This is auto replaced",
-    "license": "https://github.com/FloRad/art-gallery/blob/master/LICENSE",
-    "readme": "https://github.com/FloRad/art-gallery#readme",
-    "bugs": "https://github.com/FloRad/art-gallery/issues",
-    "changelog": "https://github.com/FloRad/art-gallery/blob/master/CHANGELOG.md"
+  "name": "art-gallery",
+  "title": "Art Gallery",
+  "description": "Art Gallery allows you to finally show off all the character art you have collected!",
+  "version": "This is auto replaced",
+  "author": "FloRad",
+  "authors": [
+    {
+      "name": "FloRad",
+      "discord": "FloRadical#2142",
+      "url": "https://gitlab.com/florad92"
+    }
+  ],
+  "library": false,
+  "socket": false,
+  "minimumCoreVersion": "9",
+  "compatibleCoreVersion": "9",
+  "esmodules": ["module/art-gallery.js"],
+  "styles": ["styles/art-gallery.css"],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "scripts": [],
+  "packs": [],
+  "dependencies": [],
+  "url": "This is auto replaced",
+  "manifest": "This is auto replaced",
+  "download": "This is auto replaced",
+  "license": "https://github.com/FloRad/art-gallery/blob/master/LICENSE",
+  "readme": "https://github.com/FloRad/art-gallery#readme",
+  "bugs": "https://github.com/FloRad/art-gallery/issues",
+  "changelog": "https://github.com/FloRad/art-gallery/blob/master/CHANGELOG.md"
 }
