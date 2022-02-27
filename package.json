@@ -3,13 +3,13 @@
     "name": "art-gallery",
     "description": "Art Gallery allows you to finally show off all the character art you have collected!",
     "license": "MIT License",
-    "homepage": "https://gitlab.com/florad-foundry/art-gallery/",
+    "homepage": "https://github.com/FloRad/art-gallery/",
     "repository": {
         "type": "git",
-        "url": "https://gitlab.com/florad-foundry/art-gallery/"
+        "url": "https://github.com/FloRad/art-gallery/"
     },
     "bugs": {
-        "url": "https://gitlab.com/florad-foundry/art-gallery/-/issues"
+        "url": "https://github.com/FloRad/art-gallery/issues"
     },
     "contributors": [
         {
