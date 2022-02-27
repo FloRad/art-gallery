@@ -30,8 +30,8 @@
     "url": "This is auto replaced",
     "manifest": "This is auto replaced",
     "download": "This is auto replaced",
-    "license": "https://gitlab.com/florad-foundry/art-gallery/-/blob/master/LICENSE",
-    "readme": "https://gitlab.com/florad-foundry/art-gallery/-/blob/master/README.md",
-    "bugs": "https://gitlab.com/florad-foundry/art-gallery/-/issues",
+    "license": "https://github.com/FloRad/art-gallery/blob/master/LICENSE",
+    "readme": "https://github.com/FloRad/art-gallery#readme",
+    "bugs": "https://github.com/FloRad/art-gallery/issues",
     "changelog": "https://gitlab.com/florad-foundry/art-gallery/-/blob/master/CHANGELOG.md"
 }
