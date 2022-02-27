@@ -26,7 +26,7 @@ export default class ArtGalleryManager extends FormApplication {
             template: 'modules/art-gallery/templates/manager.hbs',
             resizable: true,
             closeOnSubmit: false,
-            submitonClose: false,
+            submitOnClose: false,
         });
     }
 
