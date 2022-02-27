@@ -9,8 +9,9 @@
         "NoDesc": "No description available",
         "FilePath": "File Path",
         "ClickToZoom": "Click to zoom",
-        "SetTokenArt": "Set as Prototype Token Image",
+        "SetActiveTokenArt": "Set as active Token Image",
+        "SetPrototypeTokenArt": "Set as Prototype Token Image",
         "SetCharArt": "Set as Character Artwork",
-        "ClickToOpen": "Right-Click to open menu"
+        "ClickToOpen": "Click to open menu"
     }
 }

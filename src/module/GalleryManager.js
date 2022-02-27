@@ -32,8 +32,14 @@ export default class ArtGalleryManager extends FormApplication {
         return game.i18n.localize('AG.Gallery');
     }
 
+    /** @returns {Actor} the actor */
     get actor() {
         return this.object;
+    }
+
+    /** @returns {Array<TokenDocument>} the actors' active tokens*/
+    get tokens() {
+        return this.actor.getActiveTokens(false, true);
     }
 
     /**
@@ -85,6 +91,12 @@ export default class ArtGalleryManager extends FormApplication {
         return data;
     }
 
+    /**
+     * @override
+     * @private
+     * @param {Event} event - The form submission event
+     * @param {FormData} formData - the submitted FormData
+     */
     async _updateObject(event, formData) {
         const gallery = this._getGallery();
         gallery.push({ id: randomID(), ...formData });
@@ -145,49 +157,98 @@ export default class ArtGalleryManager extends FormApplication {
 
     /**
      * Construct a contextmenu
-     * @param {jQuery} html the HTML element
+     * @private
+     * @param {jQuery<HTMLElement>} html the HTML element
      * @returns the constructed context menu
      */
     _contextmenu(html) {
         const selector = '.artpiece .menu';
+        const options = { eventName: 'click' };
         const items = [
             {
                 name: 'AG.SetCharArt',
                 icon: '<i class="fas fa-sign-out-alt"></i>',
                 condition: this.editMode,
-                callback: (li) => {
-                    const id = li.parents('.artpiece').data('id');
-                    const artpiece = this._getArtpieceFromGallery(id);
-                    this.actor.update({ img: artpiece.img });
-                },
+                callback: this._onSetCharArt.bind(this),
             },
             {
-                name: 'AG.SetTokenArt',
+                name: 'AG.SetPrototypeTokenArt',
                 icon: '<i class="fas fa-sign-out-alt"></i>',
                 condition: this.editMode,
-                callback: (li) => {
-                    const id = li.parents('.artpiece').data('id');
-                    const artpiece = this._getArtpieceFromGallery(id);
-                    this.actor.update({ 'token.img': artpiece.img });
-                },
+                callback: this._onSetPrototypeTokenArt.bind(this),
+            },
+            {
+                name: 'AG.SetActiveTokenArt',
+                icon: '<i class="fas fa-sign-out-alt"></i>',
+                condition: this.editMode && this.tokens.length > 0,
+                callback: this._onSetActiveTokenArt.bind(this),
             },
             {
                 name: 'Delete',
                 icon: '<i class="fas fa-trash"></i>',
                 condition: this.editMode,
-                callback: async (li) => {
-                    const element = li.parents('.artpiece');
-                    const id = element.data('id');
-                    await this._deleteArtFromGallery(id);
-                    element.slideUp(200, () => {
-                        this.render(true);
-                    });
-                },
+                callback: this._onDeleteArtpiece.bind(this),
             },
         ];
-        const options = {
-            // eventName: 'click',
-        };
+
         return new ContextMenu(html, selector, items, options);
+    }
+
+    /**
+     * Handle setting of actor image
+     * @private
+     * @param {jQuery<HTMLListItem>} li - the selected item from the menu
+     */
+    async _onSetCharArt(li) {
+        const id = li.parents('.artpiece').data('id');
+        const artpiece = this._getArtpieceFromGallery(id);
+        this.actor.update({ img: artpiece.img });
+    }
+
+    /**
+     * Handle setting of prototype token image
+     * @private
+     * @param {jQuery<HTMLListItem>} li - the selected item from the menu
+     */
+    async _onSetPrototypeTokenArt(li) {
+        const id = li.parents('.artpiece').data('id');
+        const artpiece = this._getArtpieceFromGallery(id);
+        const isLinked = this.actor.token?.isLinked;
+        if (isLinked) {
+            //handle linked tokens
+            await this.actor.update({ 'token.img': artpiece.img });
+        } else {
+            //handle unlinked tokens
+            const actorId = this.actor?.token?.data?.actorId;
+            const actor = game.actors.get(actorId, {
+                strict: true,
+            });
+            await actor.update({ 'token.img': artpiece.img });
+        }
+    }
+
+    /**
+     * Handle setting of active token image
+     * @private
+     * @param {jQuery<HTMLListItem>} li - the selected item from the menu
+     */
+    async _onSetActiveTokenArt(li) {
+        const id = li.parents('.artpiece').data('id');
+        const artpiece = this._getArtpieceFromGallery(id);
+        for (const token of this.tokens) {
+            await token.update({ img: artpiece.img });
+        }
+    }
+
+    /**
+     * Handle deletion of art piece
+     * @private
+     * @param {jQuery<HTMLListItem>} li - the selected item from the menu
+     */
+    async _onDeleteArtpiece(li) {
+        const element = li.parents('.artpiece');
+        const id = element.data('id');
+        await this._deleteArtFromGallery(id);
+        element.slideUp(200, () => this.render(true));
     }
 }

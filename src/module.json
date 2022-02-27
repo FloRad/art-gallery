@@ -13,7 +13,7 @@
     ],
     "library": false,
     "socket": false,
-    "minimumCoreVersion": "0.8.9",
+    "minimumCoreVersion": "9",
     "compatibleCoreVersion": "9",
     "esmodules": ["module/art-gallery.js"],
     "styles": ["styles/art-gallery.css"],
