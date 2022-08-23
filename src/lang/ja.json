@@ -1,0 +1,17 @@
+{
+  "AG": {
+      "Gallery": "アートギャラリー",
+      "ViewGallery": "アートギャラリーを見る",
+      "AddArt": "アートピースを加える",
+      "Image": "画像",
+      "Title": "タイトル",
+      "EnterDesc": "説明文を追加...",
+      "NoDesc": "説明文がありません",
+      "FilePath": "ファイルパスを指定",
+      "ClickToZoom": "クリックしてズーム",
+      "SetActiveTokenArt": "アクティブなトークン画像に設定する",
+      "SetPrototypeTokenArt": "プロトタイプトークン画像に設定する",
+      "SetCharArt": "キャラクターアートワークに設定",
+      "ClickToOpen": "クリックするとメニューが表示されます。"
+  }
+}
