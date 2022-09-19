@@ -1,0 +1,17 @@
+{
+  "AG": {
+    "Gallery": "Art Gallery",
+    "ViewGallery": "Art Gallery anzeigen",
+    "AddArt": "Bild hinzufügen",
+    "Image": "Bild",
+    "Title": "Titel",
+    "EnterDesc": "Bildbeschreibung...",
+    "NoDesc": "Keine Beschreibung verfügbar",
+    "FilePath": "Dateipfad",
+    "ClickToZoom": "Klicke zum zoomen",
+    "SetActiveTokenArt": "Als aktives Tokenbild setzen",
+    "SetPrototypeTokenArt": "Als Prototyp-Tokenbild setzen",
+    "SetCharArt": "Als Charakter-Bild setzen",
+    "ClickToOpen": "Klicke um das Menü zu öffnen"
+  }
+}

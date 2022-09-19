@@ -20,6 +20,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Security
 -->
 
+## [v1.3.1]
+
+### Added
+
+- Added german localization (Thanks to TommyCore)
+
 ## [v1.3.0]
 
 ### Added
