@@ -97,7 +97,7 @@ export default class ArtGalleryManager extends FormApplication {
    * @param {Event} event - The form submission event
    * @param {FormData} formData - the submitted FormData
    */
-  async _updateObject(event, formData) {
+  async _updateObject(_event, formData) {
     const gallery = this._getGallery();
     gallery.push({ id: randomID(), ...formData });
     await this._setGallery(gallery);
@@ -213,13 +213,13 @@ export default class ArtGalleryManager extends FormApplication {
   async _onSetPrototypeTokenArt(li) {
     const id = li.parents('.artpiece').data('id');
     const artpiece = this._getArtpieceFromGallery(id);
-    const isLinked = this.actor.token?.isLinked;
+    const isLinked = this.actor.prototypeToken?.actorLink;
     if (isLinked) {
       //handle linked tokens
       await this.actor.update({ 'token.img': artpiece.img });
     } else {
       //handle unlinked tokens
-      const actorId = this.actor?.token?.data?.actorId;
+      const actorId = this.actor?.token?.actorId;
       const actor = game.actors.get(actorId, {
         strict: true,
       });

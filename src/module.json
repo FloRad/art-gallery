@@ -1,9 +1,15 @@
 {
-  "name": "art-gallery",
   "title": "Art Gallery",
+  "id": "art-gallery",
+  "name": "art-gallery",
   "description": "Art Gallery allows you to finally show off all the character art you have collected!",
   "version": "This is auto replaced",
-  "author": "FloRad",
+  "compatibility": {
+    "minimum": 10,
+    "verified": 10,
+    "maximum": 10
+  },
+  "minimumCoreVersion": 10,
   "authors": [
     {
       "name": "FloRad",
@@ -11,10 +17,6 @@
       "url": "https://github.com/FloRad"
     }
   ],
-  "library": false,
-  "socket": false,
-  "minimumCoreVersion": "9",
-  "compatibleCoreVersion": "9",
   "esmodules": ["module/art-gallery.js"],
   "styles": ["styles/art-gallery.css"],
   "languages": [
@@ -24,9 +26,6 @@
       "path": "lang/en.json"
     }
   ],
-  "scripts": [],
-  "packs": [],
-  "dependencies": [],
   "url": "This is auto replaced",
   "manifest": "This is auto replaced",
   "download": "This is auto replaced",
